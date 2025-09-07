@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4jj6ufoi4y1f"]
+
+[ext_resource type="PackedScene" uid="uid://ckffjey2u472f" path="res://entity/player/player.tscn" id="1_kjdwo"]
+[ext_resource type="PackedScene" uid="uid://f5etvhwoyexb" path="res://map/room.tscn" id="2_22k4f"]
+
+[sub_resource type="Environment" id="Environment_22k4f"]
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 0.1182
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.5
+
+[node name="Root" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_22k4f")
+
+[node name="Player" parent="." instance=ExtResource("1_kjdwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+
+[node name="Room" parent="." instance=ExtResource("2_22k4f")]
